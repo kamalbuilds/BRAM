@@ -18,6 +18,12 @@ Follwing are the steps to deploy your application locally
 
 2. Run below commands:
 
+    ``` sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)" ```
+    
+    Then export its path
+
+   ```export PATH="$PATH:/home/einstein/bin"```
+   
    ```dfx start --clean --background```
 
    `bash scripts/deploy_frontend_canister.sh  local`
