@@ -49,7 +49,9 @@ Follwing are the steps to deploy your application locally
     
     Then export its path
 
-   ```export PATH="$PATH:/home/einstein/bin"```
+   ```
+   export PATH="$PATH:/home/einstein/bin"
+   ```
    
    ```dfx start --clean --background```
 
