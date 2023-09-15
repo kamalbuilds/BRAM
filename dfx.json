@@ -1,14 +1,15 @@
 {
-    "canisters": {
-  
-      "frontend_canister": {
-        "frontend": {
-          "entrypoint": "out/index.html"
-        },
-        "source": ["out"],
-        "type": "assets"
-      }
-    },
-    "dfx": "0.15.0-ext.0",
-    "version": 1
-  }
+  "canisters": {
+    "frontend_canister": {
+      "frontend": {
+        "entrypoint": "out/index.html"
+      },
+      "source": [
+        "out"
+      ],
+      "type": "assets"
+    }
+  },
+  "dfx": "0.14.4",
+  "version": 1
+}

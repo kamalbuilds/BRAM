@@ -1,23 +1,37 @@
 "use client";
 import { useState } from "react";
 import { makeAzleActor } from "../service/actor";
+// import { type HttpResponse } from 'azle/canisters/management';
+import decodeUtf8 from 'decode-utf8';
+
 
 export default function Home() {
   const [message, setMessage] = useState<string>("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [desiredStateReached, setDesiredStateReached] = useState(false);
 
+  const checkXkcdResult = async (result: any) => {
+    const resultJson = JSON.parse(decodeUtf8(Uint8Array.from(result.body)));
+
+    console.log("Results", resultJson);
+
+  }
+
   const handleSubmit = async () => {
     try {
       const azle = await makeAzleActor();
 
       setIsButtonDisabled(true);
-      const getRandomByte = await azle.randomBytes();
-      console.log("getRandomByte ", getRandomByte);
+      // const getRandomByte = await azle.randomBytes();
+      // console.log("getRandomByte ", getRandomByte);
 
-      setMessage(getRandomByte);
+      const getAPIData = await azle.xkcd();
+      checkXkcdResult(getAPIData);
+
+      // setMessage(getRandomByte);
       setIsButtonDisabled(false);
     } catch (error) {
+      console.log("Error", error);
       console.log(JSON.stringify(error));
     }
     setIsButtonDisabled(false);
